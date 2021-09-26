@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
 import javax.persistence.EntityNotFoundException
 
+/**
+ * Global controller exception handler.
+ */
 @ControllerAdvice
 class GlobalControllerExceptionHandler {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Incorrect JSON format.")

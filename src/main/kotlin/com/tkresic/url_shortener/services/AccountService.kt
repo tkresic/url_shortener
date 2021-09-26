@@ -5,20 +5,15 @@ import com.tkresic.url_shortener.dtos.accounts.AccountResponseDTO
 import com.tkresic.url_shortener.models.Account
 import com.tkresic.url_shortener.repositories.AccountRepository
 import com.tkresic.url_shortener.utils.RandomString
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.dao.DataIntegrityViolationException
-import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 
 /**
  * Account service.
  */
 @Service
-class AccountService(
-    private val accountRepository: AccountRepository,
-    @Autowired
-    private val passwordEncoder: PasswordEncoder
-) {
+class AccountService(private val accountRepository: AccountRepository) {
     /**
      * Creates account with provided account ID if the entity doesn't already exist.
      */
@@ -32,7 +27,7 @@ class AccountService(
         accountRepository.save(
             Account(
                 account.AccountId,
-                passwordEncoder.encode(password)
+                BCryptPasswordEncoder().encode(password)
             )
         )
 

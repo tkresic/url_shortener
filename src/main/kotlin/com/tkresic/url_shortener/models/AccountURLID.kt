@@ -5,6 +5,9 @@ import java.util.*
 import javax.persistence.Column
 import javax.persistence.Embeddable
 
+/**
+ * Account URL ID.
+ */
 @Embeddable
 class AccountURLID : Serializable {
     @Column(name = "accountId")
