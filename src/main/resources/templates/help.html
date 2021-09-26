@@ -10,8 +10,19 @@
         <div class="container">
             <h2>URL Shortener v0.1.0</h2>
             <a href="/">Index</a>
-            <p>Run the project</p>
+            <p>Run the app</p>
             <p>./mvnw spring-boot:run</p>
+            <h3>Examples</h3>
+            <p>Create an account (provide ACCOUNT_ID)</p>
+            <p>curl --header "Content-Type: application/json" --request POST --data '{"AccountId":"ACCOUNT_ID"}' http://localhost:8080/account</p>
+            <p>Generate basic authentication token for the created account (provide ACCOUNT_ID & PASSWORD)</p>
+            <p>echo -ne "ACCOUNT_ID:PASSWORD" | base64 --wrap 0</p>
+            <p>Use the token for URL registration (shortening) (provide TOKEN)</p>
+            <p>curl -H "Content-Type: application/json" -H "Authorization: Basic TOKEN" -X POST -d '{"url":"https://stackoverflow.com/questions/44472730/defining-a-variable-from-a-value-in-a-json-array-in-bash", "redirectType": 302}' http://localhost:8080/register</p>
+            <p>Test the generated short URL (provide TOKEN & SHORT_URL)</p>
+            <p>curl -H "Authorization: Basic TOKEN" SHORT_URL</p>
+            <p>Retrieve the stats for the created account (provide TOKEN & ACCOUNT_ID)</p>
+            <p>curl -H "Authorization: Basic TOKEN" http://localhost:8080/statistic/ACCOUNT_ID</p>
         </div>
     </body>
 
