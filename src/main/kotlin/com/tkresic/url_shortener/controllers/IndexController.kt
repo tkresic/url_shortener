@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView
  */
 @Controller
 class IndexController {
-    @GetMapping(path = ["/"])
+    @GetMapping
     fun index(): ModelAndView? {
         val modelAndView = ModelAndView()
         modelAndView.viewName = "index"

@@ -6,14 +6,16 @@ import javax.persistence.Id
 import javax.persistence.Table
 
 /**
- * Account model.
+ * URL model.
  */
 @Entity
 @Table
-data class Account(
+data class URL(
     @Id
     @Column(nullable = false, unique = true)
-    var id: String,
+    var url: String,
     @Column(nullable = false, unique = true)
-    var password: String
+    var shortUrl: String,
+    @Column(nullable = false)
+    var redirectType: Int
 )
