@@ -58,7 +58,7 @@ class URLService(
     fun redirect(shortUrl: String): ResponseEntity<Any> {
         val url = urlRepository.findByShortUrl(shortUrl)
 
-        if (url.isEmpty) {
+        if (url.isEmpty()) {
             throw EntityNotFoundException("Entity not found.")
         }
 
@@ -101,7 +101,7 @@ class URLService(
      * Creates or updates stats based on account & URL.
      */
     private fun createOrUpdateStats(stats: Optional<AccountURL>, account: Account, url: URL) {
-        if (stats.isEmpty) {
+        if (stats.isEmpty()) {
             accountURLRepository.save(
                 AccountURL(
                     id = AccountURLID(),

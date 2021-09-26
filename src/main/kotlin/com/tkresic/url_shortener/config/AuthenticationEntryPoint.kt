@@ -18,7 +18,7 @@ class AuthenticationEntryPoint(private val accountRepository: AccountRepository)
 
         val user = accountRepository.findById(name)
 
-        if (user.isEmpty || !BCryptPasswordEncoder().matches(password, user.get().password)) {
+        if (user.isEmpty() || !BCryptPasswordEncoder().matches(password, user.get().password)) {
             return null
         }
 
