@@ -1,5 +1,9 @@
 # URL shortener
 
+HTTP service for account registration, URL shortening & statistic retrieval.
+
+The app is deployed to <a href="https://t-u-s.herokuapp.com/">https://t-u-s.herokuapp.com and examples below can be done with the deployed app to instead of running it locally. 
+
 ### 1. Run the app
 
 `./mvnw spring-boot:run`

@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 
 /**
- * Account service.
+ * Account service for registration.
  */
 @Service
 class AccountService(private val accountRepository: AccountRepository) {

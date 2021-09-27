@@ -21,7 +21,7 @@ import java.util.*
 import javax.persistence.EntityNotFoundException
 
 /**
- * URL service.
+ * URL service for registering, redirecting and retrieving stats.
  */
 @Service
 class URLService(
