@@ -1,5 +1,6 @@
 package com.tkresic.url_shortener.controllers
 
+import com.tkresic.url_shortener.utils.Base
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.servlet.ModelAndView
@@ -19,6 +20,7 @@ class IndexController {
     @GetMapping(path = ["/help"])
     fun help(): ModelAndView? {
         val modelAndView = ModelAndView()
+        modelAndView.addObject("uri", Base.getServiceURI())
         modelAndView.viewName = "help"
         return modelAndView
     }

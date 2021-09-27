@@ -9,13 +9,13 @@ import com.tkresic.url_shortener.models.URL
 import com.tkresic.url_shortener.repositories.AccountRepository
 import com.tkresic.url_shortener.repositories.AccountURLRepository
 import com.tkresic.url_shortener.repositories.URLRepository
+import com.tkresic.url_shortener.utils.Base
 import com.tkresic.url_shortener.utils.RandomString
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import java.net.URI
 import java.util.*
 import javax.persistence.EntityNotFoundException
@@ -47,7 +47,7 @@ class URLService(
             URL(url.url, shortUrl, url.redirectType)
         )
 
-        val baseUrl = getServiceBaseURL()
+        val baseUrl = Base.getServiceURI()
 
         return URLResponseDTO("$baseUrl/r/$shortUrl")
     }
@@ -116,10 +116,4 @@ class URLService(
             accountURLRepository.save(statsData)
         }
     }
-
-    /**
-     * Helper method for getting the service's base URL.
-     */
-    private fun getServiceBaseURL() =
-        ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString()
 }
